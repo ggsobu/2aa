@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-E1W9NEL70S"></script>
     <script>
@@ -10,12 +9,6 @@
       gtag('js', new Date());
       gtag('config', 'G-E1W9NEL70S');
     </script>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAR Steady Rest - मॉडल सुझाव | A&A Industrial Solutions</title>
-    <link rel="stylesheet" href="style.css">
-   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAR Steady Rest - मॉडल सुझाव | A&A Industrial Solutions</title>
@@ -48,6 +41,39 @@
     <button onclick="recommendModel()">✅ सही मॉडल खोजें</button>
 
     <div id="resultArea"></div>
+</div>
+
+<!-- Netlify Form (hidden) -->
+<form name="quote-request" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name">
+    <input type="email" name="email">
+    <input type="tel" name="phone">
+    <textarea name="message"></textarea>
+    <input type="text" name="model">
+    <input type="text" name="minDia">
+    <input type="text" name="maxDia">
+    <input type="text" name="app">
+    <input type="text" name="weight">
+</form>
+
+<!-- Modal for Quote -->
+<div id="quoteModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>📄 Quote अनुरोध</h3>
+        <form id="quoteForm">
+            <label>आपका नाम *</label>
+            <input type="text" id="custName" required>
+            <label>ईमेल *</label>
+            <input type="email" id="custEmail" required>
+            <label>मोबाइल नंबर *</label>
+            <input type="tel" id="custPhone" required>
+            <label>अतिरिक्त जानकारी (ज़रूरत, मात्रा, आदि)</label>
+            <textarea id="custMessage" rows="3"></textarea>
+            <button type="submit" id="submitQuote">✅ भेजें</button>
+        </form>
+        <div id="quoteStatus"></div>
+    </div>
 </div>
 
 <script src="script.js"></script>
