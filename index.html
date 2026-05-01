@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAR Steady Rest - मॉडल सुझाव | A&A Industrial Solutions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>🔧 FAR स्टेडी रेस्ट मॉडल सुझाव</h1>
+    <p>अपनी वर्कपीस की जानकारी भरें – हम आपको सही मॉडल बताएँगे।</p>
+
+    <label>📏 न्यूनतम व्यास (mm) *</label>
+    <input type="number" id="minDia" placeholder="जैसे 20" required>
+
+    <label>📐 अधिकतम व्यास (mm) *</label>
+    <input type="number" id="maxDia" placeholder="जैसे 150" required>
+
+    <label>⚙️ एप्लिकेशन / प्रोसेस *</label>
+    <select id="appType">
+        <option value="turning">टर्निंग (Turning)</option>
+        <option value="grinding">ग्राइंडिंग (Grinding)</option>
+        <option value="crankshaft">क्रैंकशाफ्ट ग्राइंडिंग</option>
+        <option value="heavy">हैवी ड्यूटी (भारी कंपोनेंट)</option>
+        <option value="coolant">कूलेंट फ्लश वाला (CS सीरीज)</option>
+        <option value="compact">कॉम्पैक्ट जगह (FRC)</option>
+    </select>
+
+    <label>⚖️ वर्कपीस का अनुमानित वजन (kg) (वैकल्पिक)</label>
+    <input type="number" id="weight" placeholder="जैसे 5000">
+
+    <button onclick="recommendModel()">✅ सही मॉडल खोजें</button>
+
+    <div id="resultArea"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
