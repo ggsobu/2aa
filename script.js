@@ -1,4 +1,4 @@
-// ---------- मॉडल डेटाबेस (FAR कैटलॉग के अनुसार) ----------
+// ---------- मॉडल डेटाबेस ----------
 const models = [
     { name: "FRC1216", minDia: 30, maxDia: 160, app: "compact", weightCap: 500, details: "अल्ट्रा कॉम्पैक्ट, प्रेशर बूस्टर" },
     { name: "FRC3025", minDia: 45, maxDia: 250, app: "compact", weightCap: 800, details: "कॉम्पैक्ट, ऑटो लुब्रिकेशन" },
@@ -54,7 +54,6 @@ function recommendModel() {
         return diaOk && appOk && weightOk;
     });
 
-    // Save current search parameters for quote
     currentSearchParams = { minD, maxD, app, weightKg: isNaN(weightKg) ? 0 : weightKg };
 
     if (matched.length === 0) {
@@ -89,7 +88,6 @@ function recommendModel() {
     </div>`;
     resultDiv.innerHTML = html;
 
-    // Attach event listeners to all quote buttons
     document.querySelectorAll('.quoteBtn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             currentQuoteModel = btn.getAttribute('data-model');
@@ -98,11 +96,9 @@ function recommendModel() {
     });
 }
 
-// ---------- Modal Functions ----------
 function openQuoteModal() {
     const modal = document.getElementById('quoteModal');
     modal.style.display = 'block';
-    // Clear previous status
     document.getElementById('quoteStatus').innerHTML = '';
 }
 
@@ -112,7 +108,6 @@ function closeQuoteModal() {
     document.getElementById('quoteForm').reset();
 }
 
-// Submit quote using Netlify Forms
 async function submitQuote(event) {
     event.preventDefault();
     const name = document.getElementById('custName').value.trim();
@@ -127,7 +122,6 @@ async function submitQuote(event) {
         return;
     }
 
-    // Prepare data for Netlify form
     const formData = new FormData();
     formData.append('form-name', 'quote-request');
     formData.append('name', name);
@@ -158,7 +152,6 @@ async function submitQuote(event) {
     }
 }
 
-// Modal close handlers
 window.onload = () => {
     const modal = document.getElementById('quoteModal');
     const closeSpan = document.querySelector('.close');
