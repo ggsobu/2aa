@@ -17,6 +17,8 @@ const models = [
     { name: "FRUN3", minDia: 50, maxDia: 165, app: "turning", weightCap: 1000, details: "फुली सील्ड, सेफ्टी वाल्व" }
 ];
 
+let currentSearchParams = { minDia: 25, maxDia: 155, appType: "turning", weight: 5000 };
+
 function recommendModel() {
     let minDia = parseFloat(document.getElementById("minDia").value);
     let maxDia = parseFloat(document.getElementById("maxDia").value);
@@ -25,16 +27,17 @@ function recommendModel() {
     let weight = parseFloat(document.getElementById("weight").value);
     let resultDiv = document.getElementById("resultArea");
 
+    currentSearchParams = { minDia, maxDia, appType, weight };
+
     if (isNaN(minDia) || isNaN(maxDia)) {
-        resultDiv.innerHTML = `<div class="result error">❌ कृपया न्यूनतम और अधिकतम व्यास दोनों भरें।</div>`;
+        resultDiv.innerHTML = `<div class="result error">❌ कृपया व्यास भरें।</div>`;
         return;
     }
     if (minDia > maxDia) {
-        resultDiv.innerHTML = `<div class="result error">❌ न्यूनतम व्यास अधिकतम व्यास से बड़ा नहीं हो सकता।</div>`;
+        resultDiv.innerHTML = `<div class="result error">❌ न्यूनतम व्यास अधिकतम से बड़ा नहीं हो सकता।</div>`;
         return;
     }
 
-    // एप्लिकेशन मैपिंग
     let appMapping = {
         "turning": ["turning", "compact"],
         "grinding": ["grinding"],
@@ -45,14 +48,12 @@ function recommendModel() {
     };
     let targetApps = appMapping[appType] || [appType];
 
-    // मॉडल फिल्टर – सिर्फ व्यास और एप्लिकेशन देखें, वजन नहीं
     let matchedModels = models.filter(model => {
         let diaOverlap = (maxDia >= model.minDia - 20) && (minDia <= model.maxDia + 20);
         let appMatch = targetApps.includes(model.app);
         return diaOverlap && appMatch;
     });
 
-    // अगर वजन ज्यादा है तो चेतावनी दें
     let weightWarning = "";
     if (!isNaN(weight) && weight > 0) {
         let heavyModels = matchedModels.filter(m => weight <= m.weightCap);
@@ -62,33 +63,71 @@ function recommendModel() {
     }
 
     if (matchedModels.length === 0) {
-        resultDiv.innerHTML = `<div class="result error">
-            😕 आपके इनपुट से मेल खाता कोई मॉडल नहीं मिला।<br><br>
-            📞 <strong>कृपया हमसे संपर्क करें:</strong> +91 92050 09857
-        </div>`;
+        resultDiv.innerHTML = `<div class="result error">😕 कोई मॉडल नहीं मिला।<br><br>📞 संपर्क करें: +91 92050 09857</div>`;
         return;
     }
 
-    // रिजल्ट टेबल
-    let html = weightWarning + `<div class="result">
-        <strong>✅ आपके लिए ${matchedModels.length} सुझाए गए मॉडल:</strong>
-        <table>
-            <thead>
-                <tr><th>मॉडल</th><th>व्यास रेंज (mm)</th><th>क्षमता (kg)</th><th>विशेषता</th></tr>
-            </thead>
-            <tbody>`;
+    let html = weightWarning + `<div class="result"><strong>✅ आपके लिए ${matchedModels.length} सुझाए गए मॉडल:</strong>
+        <table><thead><tr><th>मॉडल</th><th>व्यास रेंज</th><th>क्षमता</th><th>विशेषता</th><th>कार्रवाई</th></tr></thead><tbody>`;
+    
     matchedModels.forEach(m => {
         html += `<tr>
-                    <td><b>${m.name}</b></td>
-                    <td>${m.minDia} – ${m.maxDia}</td>
-                    <td>${m.weightCap} kg</td>
-                    <td>${m.details}</td>
-                 </tr>`;
+            <td><b>${m.name}</b></td>
+            <td>${m.minDia}–${m.maxDia} mm</td>
+            <td>${m.weightCap} kg</td>
+            <td>${m.details}</td>
+            <td><button class="quoteBtn" data-model="${m.name}" data-min="${m.minDia}" data-max="${m.maxDia}">📄 Quote लें</button></td>
+        </tr>`;
     });
-    html += `</tbody>
-        </table>
-        <hr>
-        📞 <strong>क्वोटेशन के लिए:</strong> +91 92050 09857
-    </div>`;
+    html += `</tbody></table><hr>📞 <strong>क्वोटेशन के लिए:</strong> +91 92050 09857</div>`;
     resultDiv.innerHTML = html;
+
+    // Quote बटन पर क्लिक हैंडलर
+    document.querySelectorAll('.quoteBtn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            document.getElementById('custModel').value = btn.getAttribute('data-model');
+            let diaRange = btn.getAttribute('data-min') + " - " + btn.getAttribute('data-max') + " mm";
+            document.getElementById('custDia').value = diaRange;
+            openQuoteModal();
+        });
+    });
 }
+
+// Modal Functions
+function openQuoteModal() {
+    document.getElementById('quoteModal').style.display = 'block';
+    document.getElementById('quoteForm').reset();
+    document.getElementById('quoteStatus').innerHTML = '';
+}
+
+function closeQuoteModal() {
+    document.getElementById('quoteModal').style.display = 'none';
+}
+
+window.onload = () => {
+    document.querySelector('.close').onclick = closeQuoteModal;
+    window.onclick = (event) => {
+        if (event.target === document.getElementById('quoteModal')) closeQuoteModal();
+    };
+    
+    // Formspree form submit handler
+    const form = document.getElementById('quoteForm');
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const statusDiv = document.getElementById('quoteStatus');
+        statusDiv.innerHTML = '<p style="color:blue;">⏳ भेजा जा रहा है...</p>';
+        
+        try {
+            const formData = new FormData(form);
+            const response = await fetch(form.action, { method: 'POST', body: formData });
+            if (response.ok) {
+                statusDiv.innerHTML = '<p style="color:green;">✅ Quote अनुरोध भेज दिया गया है! हम जल्द ही संपर्क करेंगे।</p>';
+                setTimeout(closeQuoteModal, 2000);
+            } else {
+                throw new Error('Failed');
+            }
+        } catch (error) {
+            statusDiv.innerHTML = '<p style="color:red;">❌ कुछ गलत हो गया। कृपया बाद में प्रयास करें या सीधे फोन करें।</p>';
+        }
+    });
+};
