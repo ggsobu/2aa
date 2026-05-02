@@ -1,158 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f0f2f5;
-    margin: 0;
-    padding: 20px;
-}
-
-.container {
-    max-width: 800px;
-    margin: auto;
-    background: white;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-h1 {
-    text-align: center;
-    color: #1e3c72;
-    margin-bottom: 10px;
-}
-
-p {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #555;
-}
-
-label {
-    font-weight: bold;
-    display: block;
-    margin-top: 15px;
-    color: #1e3c72;
-}
-
-input, select, button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-}
-
-button {
-    background-color: #1e3c72;
-    color: white;
-    font-weight: bold;
-    border: none;
-    margin-top: 25px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-button:hover {
-    background-color: #0e2a4a;
-}
-
-.result {
-    margin-top: 30px;
-    background: #e9f7e1;
-    padding: 15px;
-    border-radius: 10px;
-    border-left: 6px solid #2e7d32;
-}
-
-.error {
-    background: #ffebee;
-    border-left-color: #c62828;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-}
-
-th, td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: left;
-}
-
-th {
-    background: #d9e2ef;
-}
-
-hr {
-    margin: 15px 0;
-}
-
-.contact-info {
-    background: #f5f5f5;
-    padding: 10px;
-    border-radius: 8px;
-    text-align: center;
-}
-
-/* Modal styles */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-}
-.modal-content {
-    background-color: #fefefe;
-    margin: 10% auto;
-    padding: 25px;
-    border-radius: 12px;
-    width: 90%;
-    max-width: 450px;
-    position: relative;
-}
-.close {
-    position: absolute;
-    right: 20px;
-    top: 10px;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-.close:hover {
-    color: red;
-}
-#quoteForm label {
-    margin-top: 10px;
-    font-weight: bold;
-}
-#quoteForm input, #quoteForm textarea {
-    width: 100%;
-    padding: 8px;
-    margin-top: 4px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-}
-#submitQuote {
-    background-color: #1e3c72;
-    color: white;
-    padding: 10px;
-    margin-top: 15px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
 .quoteBtn {
     background-color: #ff9800;
     color: white;
@@ -165,12 +10,27 @@ hr {
 .quoteBtn:hover {
     background-color: #e68900;
 }
-
-@media (max-width: 600px) {
-    .container {
-        padding: 15px;
-    }
-    th, td {
-        font-size: 14px;
-    }
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 25px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+}
+.close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 28px;
+    cursor: pointer;
 }
