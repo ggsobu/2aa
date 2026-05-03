@@ -17,7 +17,7 @@ const models = [
     { name: "FRUN3", minDia: 50, maxDia: 165, app: "turning", weightCap: 1000, details: "फुली सील्ड, सेफ्टी वाल्व" }
 ];
 
-let currentSearchParams = { minDia: 25, maxDia: 155, appType: "turning", weight: 5000 };
+let currentSearchParams = {};
 
 function recommendModel() {
     let minDia = parseFloat(document.getElementById("minDia").value);
@@ -82,7 +82,6 @@ function recommendModel() {
     html += `</tbody></table><hr>📞 <strong>क्वोटेशन के लिए:</strong> +91 92050 09857</div>`;
     resultDiv.innerHTML = html;
 
-    // Quote बटन पर क्लिक हैंडलर
     document.querySelectorAll('.quoteBtn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             document.getElementById('custModel').value = btn.getAttribute('data-model');
@@ -93,15 +92,14 @@ function recommendModel() {
     });
 }
 
-// Modal Functions
 function openQuoteModal() {
     document.getElementById('quoteModal').style.display = 'block';
-    document.getElementById('quoteForm').reset();
     document.getElementById('quoteStatus').innerHTML = '';
 }
 
 function closeQuoteModal() {
     document.getElementById('quoteModal').style.display = 'none';
+    document.getElementById('quoteForm').reset();
 }
 
 window.onload = () => {
@@ -110,24 +108,10 @@ window.onload = () => {
         if (event.target === document.getElementById('quoteModal')) closeQuoteModal();
     };
     
-    // Formspree form submit handler
     const form = document.getElementById('quoteForm');
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
+    form.addEventListener('submit', (e) => {
         const statusDiv = document.getElementById('quoteStatus');
-        statusDiv.innerHTML = '<p style="color:blue;">⏳ भेजा जा रहा है...</p>';
-        
-        try {
-            const formData = new FormData(form);
-            const response = await fetch(form.action, { method: 'POST', body: formData });
-            if (response.ok) {
-                statusDiv.innerHTML = '<p style="color:green;">✅ Quote अनुरोध भेज दिया गया है! हम जल्द ही संपर्क करेंगे।</p>';
-                setTimeout(closeQuoteModal, 2000);
-            } else {
-                throw new Error('Failed');
-            }
-        } catch (error) {
-            statusDiv.innerHTML = '<p style="color:red;">❌ कुछ गलत हो गया। कृपया बाद में प्रयास करें या सीधे फोन करें।</p>';
-        }
+        statusDiv.innerHTML = '<p style="color:green;">✅ आपका Quote अनुरोध भेज दिया गया है! हम जल्द ही संपर्क करेंगे।</p>';
+        setTimeout(closeQuoteModal, 2000);
     });
 };
