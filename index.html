@@ -35,15 +35,23 @@
     <div id="resultArea"></div>
 </div>
 
+<!-- Netlify Form (Hidden) -->
+<form name="quote-request" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name">
+    <input type="email" name="email">
+    <input type="tel" name="phone">
+    <textarea name="message"></textarea>
+    <input type="text" name="model">
+    <input type="text" name="diameter">
+</form>
+
 <!-- Modal for Quote -->
 <div id="quoteModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
         <h3>📄 Quote अनुरोध</h3>
-        <form id="quoteForm" action="https://formspree.io/f/xbdwlwkj" method="POST">
-            <input type="hidden" name="_subject" value="नया Quote अनुरोध - FAR Steady Rest">
-            <input type="hidden" name="_cc" value="sales@2aa.co.in">
-            <input type="text" name="_gotcha" style="display:none">
+        <form id="quoteForm" name="quote-request" netlify>
+            <input type="hidden" name="form-name" value="quote-request">
             <label>आपका नाम *</label>
             <input type="text" name="name" id="custName" required>
             <label>ईमेल *</label>
