@@ -3,39 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A&A Steady Rest - मॉडल सुझाव | A&A Industrial Solutions</title>
+    <title>A&A Steady Rest - मॉडल सुझाव</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
 <div class="container">
+
     <h1>🔧 A&A स्टेडी रेस्ट मॉडल सुझाव</h1>
-    <p>अपनी वर्कपीस की जानकारी भरें – हम आपको सही मॉडल बताएँगे।</p>
+    <p class="subtitle">अपनी वर्कपीस की जानकारी भरें — तुरंत सही मॉडल पाएँ</p>
 
-    <label>📏 न्यूनतम व्यास (mm) *</label>
-    <input type="number" id="minDia" placeholder="जैसे 20" required>
+    <!-- FORM -->
+    <div class="form-box">
 
-    <label>📐 अधिकतम व्यास (mm) *</label>
-    <input type="number" id="maxDia" placeholder="जैसे 150" required>
+        <div class="input-group">
+            <label>📏 न्यूनतम व्यास (mm) *</label>
+            <input type="number" id="minDia" placeholder="जैसे 20" required>
+        </div>
 
-    <label>⚙️ एप्लिकेशन / प्रोसेस *</label>
-    <select id="appType">
-        <option value="turning">टर्निंग (Turning)</option>
-        <option value="grinding">ग्राइंडिंग (Grinding)</option>
-        <option value="crankshaft">क्रैंकशाफ्ट ग्राइंडिंग</option>
-        <option value="heavy">हैवी ड्यूटी (भारी कंपोनेंट)</option>
-        <option value="coolant">कूलेंट फ्लश वाला (CS सीरीज)</option>
-        <option value="compact">कॉम्पैक्ट जगह (FRC)</option>
-    </select>
+        <div class="input-group">
+            <label>📐 अधिकतम व्यास (mm) *</label>
+            <input type="number" id="maxDia" placeholder="जैसे 150" required>
+        </div>
 
-    <label>⚖️ वर्कपीस का अनुमानित वजन (kg) (वैकल्पिक)</label>
-    <input type="number" id="weight" placeholder="जैसे 5000">
+        <div class="input-group">
+            <label>⚙️ एप्लिकेशन / प्रोसेस *</label>
+            <select id="appType">
+                <option value="turning">टर्निंग (Turning)</option>
+                <option value="grinding">ग्राइंडिंग (Grinding)</option>
+                <option value="crankshaft">क्रैंकशाफ्ट ग्राइंडिंग</option>
+                <option value="heavy">हैवी ड्यूटी</option>
+                <option value="coolant">कूलेंट फ्लश (CS Series)</option>
+                <option value="compact">कॉम्पैक्ट जगह (FRC)</option>
+            </select>
+        </div>
 
-    <button onclick="recommendModel()">✅ सही मॉडल खोजें</button>
+        <div class="input-group">
+            <label>⚖️ वर्कपीस वजन (kg) (वैकल्पिक)</label>
+            <input type="number" id="weight" placeholder="जैसे 5000">
+        </div>
 
-    <div id="resultArea"></div>
+        <button class="mainBtn" onclick="recommendModel()">🚀 सही मॉडल खोजें</button>
+
+    </div>
+
+    <!-- RESULT -->
+    <div id="resultArea" class="result-box"></div>
+
 </div>
 
-<!-- Netlify Form (Hidden) -->
+
+<!-- Hidden Netlify Form -->
 <form name="quote-request" netlify netlify-honeypot="bot-field" hidden>
     <input type="text" name="name">
     <input type="email" name="email">
@@ -45,31 +68,69 @@
     <input type="text" name="diameter">
 </form>
 
-<!-- Modal for Quote -->
+
+<!-- MODAL -->
 <div id="quoteModal" class="modal">
+
     <div class="modal-content">
+
         <span class="close">&times;</span>
+
         <h3>📄 Quote अनुरोध</h3>
+        <p class="modal-sub">हम 24 घंटे में आपसे संपर्क करेंगे</p>
+
         <form id="quoteForm" name="quote-request" netlify>
+
             <input type="hidden" name="form-name" value="quote-request">
-            <label>आपका नाम *</label>
-            <input type="text" name="name" id="custName" required>
-            <label>ईमेल *</label>
-            <input type="email" name="email" id="custEmail" required>
-            <label>मोबाइल नंबर *</label>
-            <input type="tel" name="phone" id="custPhone" required>
-            <label>मॉडल</label>
-            <input type="text" name="model" id="custModel" readonly>
-            <label>व्यास रेंज</label>
-            <input type="text" name="diameter" id="custDia" readonly>
-            <label>अतिरिक्त जानकारी</label>
-            <textarea name="message" id="custMessage" rows="3"></textarea>
-            <button type="submit">✅ Quote भेजें</button>
+
+            <div class="input-group">
+                <label>👤 आपका नाम *</label>
+                <input type="text" name="name" id="custName" required>
+            </div>
+
+            <div class="input-group">
+                <label>📧 ईमेल *</label>
+                <input type="email" name="email" id="custEmail" required>
+            </div>
+
+            <div class="input-group">
+                <label>📱 मोबाइल नंबर *</label>
+                <input type="tel" name="phone" id="custPhone" required>
+            </div>
+
+            <div class="input-group">
+                <label>⚙️ मॉडल</label>
+                <input type="text" name="model" id="custModel" readonly>
+            </div>
+
+            <div class="input-group">
+                <label>📏 व्यास रेंज</label>
+                <input type="text" name="diameter" id="custDia" readonly>
+            </div>
+
+            <div class="input-group">
+                <label>📝 अतिरिक्त जानकारी</label>
+                <textarea name="message" id="custMessage" rows="3"></textarea>
+            </div>
+
+            <button type="submit" class="submitBtn">✅ Quote भेजें</button>
+
         </form>
+
         <div id="quoteStatus"></div>
+
     </div>
+
 </div>
 
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 A&A Industrial Solutions | Made for Smart Manufacturing ⚙️</p>
+</footer>
+
+
 <script src="script.js"></script>
+
 </body>
 </html>
