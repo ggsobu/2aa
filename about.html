@@ -1,16 +1,117 @@
 <!DOCTYPE html>
-<html>
+<html lang="hi">
 <head>
-    <title>About</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A&A Industrial Solutions - About Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional page-specific styles */
+        .about-hero {
+            background: linear-gradient(135deg, #1e3c72 0%, #2b4d7a 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 28px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .about-hero h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .about-card {
+            background: #f9fafc;
+            padding: 1.5rem;
+            border-radius: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .about-card h3 {
+            color: #1e3c72;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        .stat-item {
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 60px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            font-weight: 600;
+            color: #1e3c72;
+        }
+        @media (max-width: 600px) {
+            .about-hero h2 { font-size: 1.5rem; }
+        }
+    </style>
 </head>
 <body>
-    <h1>About Us</h1>
+<div class="container">
+    <h1>🔧 A&A स्टेडी रेस्ट मॉडल सुझाव</h1>
     <nav>
         <a href="index.html">Home</a> |
         <a href="about.html">About</a> |
         <a href="services.html">Services</a> |
         <a href="contact.html">Contact</a>
     </nav>
-    <p>This is about page.</p>
+    <p class="subtitle">हमारे बारे में – आपके विश्वसनीय भागीदार</p>
+
+    <div class="about-hero">
+        <h2>A&A Industrial Solutions</h2>
+        <p>स्टेडी रेस्ट, CNC एक्सेसरीज़ और ऑटोमेशन में 25+ वर्षों का अनुभव</p>
+    </div>
+
+    <div class="about-content">
+        <div class="about-card">
+            <h3>🏭 हम कौन हैं?</h3>
+            <p>A&A Industrial Solutions, FAR (Fenwick And Ravi) सेल्फ-सेंटरिंग स्टेडी रेस्ट्स के लिए एक अधिकृत चैनल पार्टनर और ऑटोमेशन कंसल्टेंट है। हम दिल्ली-एनसीआर (गाजियाबाद) स्थित हैं और पूरे भारत में टर्निंग, मिलिंग, ग्राइंडिंग, क्रैंकशाफ्ट, हैवी ड्यूटी और स्पेशल एप्लिकेशन के लिए स्टेडी रेस्ट उपलब्ध कराते हैं।</p>
+        </div>
+
+        <div class="about-card">
+            <h3>⭐ हमारी विशेषताएँ</h3>
+            <ul style="margin-left: 1.5rem; line-height: 1.8;">
+                <li>✔ 400+ मॉडल्स का विशाल चयन (FRC, FRU, CS, GHS, KRGU, MS, आदि)</li>
+                <li>✔ 25+ वर्षों का उद्योग अनुभव</li>
+                <li>✔ 6000+ फील्ड में सफल इंस्टॉलेशन</li>
+                <li>✔ पूरी तरह से हार्डन्ड और ग्राउंड स्टील – 60 HRC तक</li>
+                <li>✔ सेंट्रलाइज़्ड लुब्रिकेशन, सेफ्टी वाल्व, प्रॉक्सिमिटी फीडबैक</li>
+                <li>✔ कस्टम समाधान – हैवी ड्यूटी (30 टन तक) और हाइड्रोस्टैटिक</li>
+            </ul>
+        </div>
+
+        <div class="about-card">
+            <h3>🌍 हम किन क्षेत्रों में सेवा देते हैं?</h3>
+            <div class="stats">
+                <span class="stat-item">🔧 टर्निंग</span>
+                <span class="stat-item">⚙️ मिलिंग</span>
+                <span class="stat-item">🔄 ग्राइंडिंग</span>
+                <span class="stat-item">🔩 क्रैंकशाफ्ट</span>
+                <span class="stat-item">🧪 स्क्रू कटिंग</span>
+                <span class="stat-item">⚡ इंडक्शन हार्डनिंग</span>
+                <span class="stat-item">🕳️ डीप होल ड्रिलिंग</span>
+                <span class="stat-item">🏗️ हैवी कंपोनेंट्स</span>
+            </div>
+        </div>
+
+        <div class="about-card">
+            <h3>📞 हमसे क्यों जुड़ें?</h3>
+            <p>हम सिर्फ प्रोडक्ट नहीं बेचते – हम टर्नकी समाधान प्रदान करते हैं। चाहे माउंटिंग ब्रैकेट हो, हाइड्रोलिक एलिमेंट्स, इलेक्ट्रिकल सिस्टम या लुब्रिकेशन, हमारी टीम आपको सही गाइडेंस और इंस्टॉलेशन सपोर्ट देती है।</p>
+        </div>
+    </div>
+</div>
+<footer>
+    <p>© 2026 A&A Industrial Solutions | Made for Smart Manufacturing ⚙️</p>
+</footer>
 </body>
 </html>
