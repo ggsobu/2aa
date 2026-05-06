@@ -4,38 +4,210 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A&A Steady Rest - मॉडल सुझाव</title>
-
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f4f5f7;
+            padding: 2rem 1rem;
+            color: #1e2a3e;
+        }
+        .container {
+            max-width: 850px;
+            margin: auto;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            padding: 2rem 1.8rem;
+        }
+        h1 {
+            font-size: 1.8rem;
+            text-align: center;
+            font-weight: 600;
+            color: #1e3c72;
+            margin-bottom: 0.5rem;
+        }
+        nav {
+            text-align: center;
+            margin: 0.5rem 0 1rem;
+            font-size: 0.9rem;
+        }
+        nav a {
+            text-decoration: none;
+            color: #2c5a8c;
+            margin: 0 0.3rem;
+            font-weight: 500;
+        }
+        .subtitle {
+            text-align: center;
+            color: #4a627a;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+        .form-box {
+            background: #f9fafc;
+            padding: 1.5rem;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+        }
+        .input-group {
+            margin-bottom: 1.2rem;
+        }
+        .input-group label {
+            font-weight: 500;
+            display: block;
+            margin-bottom: 0.4rem;
+            color: #1e3c72;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 14px;
+            border: 1px solid #cbd5e1;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: 0.2s;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #1e3c72;
+            box-shadow: 0 0 0 3px rgba(30,60,114,0.1);
+        }
+        .mainBtn, .submitBtn {
+            background: #1e3c72;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 0.5rem;
+        }
+        .mainBtn:hover, .submitBtn:hover {
+            background: #0e2a4a;
+            transform: scale(0.98);
+        }
+        .result-box {
+            margin-top: 1.8rem;
+        }
+        .result {
+            background: #e9f7e1;
+            padding: 1.2rem;
+            border-radius: 20px;
+            border-left: 5px solid #2e7d32;
+        }
+        .error {
+            background: #ffebee;
+            border-left-color: #c62828;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+            font-size: 0.85rem;
+        }
+        th {
+            background: #d9e2ef;
+        }
+        .quoteBtn {
+            background: #ff9800;
+            color: white;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(2px);
+        }
+        .modal-content {
+            background: white;
+            margin: 8% auto;
+            padding: 20px;
+            border-radius: 28px;
+            width: 90%;
+            max-width: 460px;
+            position: relative;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.2);
+        }
+        .close {
+            position: absolute;
+            right: 22px;
+            top: 12px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #555;
+        }
+        .close:hover {
+            color: red;
+        }
+        .modal-sub {
+            font-size: 0.8rem;
+            color: #4a627a;
+            margin-bottom: 1rem;
+        }
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.75rem;
+            color: #5a6e84;
+        }
+        @media (max-width: 550px) {
+            .container {
+                padding: 1.2rem;
+            }
+            th, td {
+                font-size: 0.7rem;
+            }
+        }
+    </style>
 </head>
-
 <body>
 <div class="container">
-
     <h1>🔧 A&A स्टेडी रेस्ट मॉडल सुझाव</h1>
-<nav>
-    <a href="index.html">Home</a> |
-    <a href="about.html">About</a> |
-    <a href="services.html">Services</a> |
-    <a href="contact.html">Contact</a>
-</nav>
+    <nav>
+        <a href="index.html">Home</a> |
+        <a href="about.html">About</a> |
+        <a href="services.html">Services</a> |
+        <a href="contact.html">Contact</a>
+    </nav>
     <p class="subtitle">अपनी वर्कपीस की जानकारी भरें — तुरंत सही मॉडल पाएँ</p>
 
-    <!-- FORM -->
     <div class="form-box">
-
         <div class="input-group">
             <label>📏 न्यूनतम व्यास (mm) *</label>
             <input type="number" id="minDia" placeholder="जैसे 20" required>
         </div>
-
         <div class="input-group">
             <label>📐 अधिकतम व्यास (mm) *</label>
             <input type="number" id="maxDia" placeholder="जैसे 150" required>
         </div>
-
         <div class="input-group">
             <label>⚙️ एप्लिकेशन / प्रोसेस *</label>
             <select id="appType">
@@ -47,95 +219,177 @@
                 <option value="compact">कॉम्पैक्ट जगह (FRC)</option>
             </select>
         </div>
-
         <div class="input-group">
             <label>⚖️ वर्कपीस वजन (kg) (वैकल्पिक)</label>
             <input type="number" id="weight" placeholder="जैसे 5000">
         </div>
-
         <button class="mainBtn" onclick="recommendModel()">🚀 सही मॉडल खोजें</button>
-
     </div>
 
-    <!-- RESULT -->
     <div id="resultArea" class="result-box"></div>
-
 </div>
-form id="quoteForm" action="https://formspree.io/f/xbdwlwkj" method="POST">
-    <input type="hidden" name="_subject" value="नया Quote अनुरोध - A&A Steady Rest">
-    <input type="hidden" name="_cc" value="sales@2aa.co.in">
-    <input type="text" name="_gotcha" style="display:none">
 
-    <div class="input-group">
-        <label>👤 आपका नाम *</label>
-        <input type="text" name="name" id="custName" required>
-    </div>
-    <!-- बाकी सारे input वैसे ही रखें ... -->
-    <button type="submit" class="submitBtn">✅ Quote भेजें</button>
-</form>
-
-<!-- MODAL -->
+<!-- MODAL for Quote (Formspree integrated) -->
 <div id="quoteModal" class="modal">
-
     <div class="modal-content">
-
         <span class="close">&times;</span>
-
         <h3>📄 Quote अनुरोध</h3>
         <p class="modal-sub">हम 24 घंटे में आपसे संपर्क करेंगे</p>
-
-        <form id="quoteForm" name="quote-request" netlify>
-
-            <input type="hidden" name="form-name" value="quote-request">
-
+        <form id="quoteForm" action="https://formspree.io/f/xbdwlwkj" method="POST">
+            <!-- required formspree fields -->
+            <input type="hidden" name="_subject" value="नया Quote अनुरोध - A&A Steady Rest">
+            <input type="hidden" name="_cc" value="sales@2aa.co.in">
+            <input type="text" name="_gotcha" style="display:none">
+            
             <div class="input-group">
                 <label>👤 आपका नाम *</label>
                 <input type="text" name="name" id="custName" required>
             </div>
-
             <div class="input-group">
                 <label>📧 ईमेल *</label>
                 <input type="email" name="email" id="custEmail" required>
             </div>
-
             <div class="input-group">
                 <label>📱 मोबाइल नंबर *</label>
                 <input type="tel" name="phone" id="custPhone" required>
             </div>
-
             <div class="input-group">
                 <label>⚙️ मॉडल</label>
                 <input type="text" name="model" id="custModel" readonly>
             </div>
-
             <div class="input-group">
                 <label>📏 व्यास रेंज</label>
                 <input type="text" name="diameter" id="custDia" readonly>
             </div>
-
             <div class="input-group">
                 <label>📝 अतिरिक्त जानकारी</label>
                 <textarea name="message" id="custMessage" rows="3"></textarea>
             </div>
-
             <button type="submit" class="submitBtn">✅ Quote भेजें</button>
-
         </form>
-
         <div id="quoteStatus"></div>
-
     </div>
-
 </div>
 
-
-<!-- FOOTER -->
 <footer>
     <p>© 2026 A&A Industrial Solutions | Made for Smart Manufacturing ⚙️</p>
 </footer>
 
+<script>
+    // ---------- मॉडल डेटाबेस ----------
+    const models = [
+        { name: "FRC1216", minDia: 30, maxDia: 160, app: "turning", weightCap: 500, details: "अल्ट्रा कॉम्पैक्ट, प्रेशर बूस्टर" },
+        { name: "FRC3025", minDia: 45, maxDia: 250, app: "turning", weightCap: 800, details: "कॉम्पैक्ट, ऑटो लुब्रिकेशन" },
+        { name: "FRU3", minDia: 20, maxDia: 165, app: "turning", weightCap: 1500, details: "रियर सिलिंडर, प्रॉक्सिमिटी फीडबैक" },
+        { name: "FRU5", minDia: 45, maxDia: 350, app: "turning", weightCap: 2000, details: "बड़ी रेंज, हाइड्रोलिक" },
+        { name: "GHS260E", minDia: 10, maxDia: 60, app: "grinding", weightCap: 300, details: "ग्राइंडिंग, कार्बाइड पैड" },
+        { name: "GHS1012A", minDia: 10, maxDia: 120, app: "grinding", weightCap: 500, details: "सिलिंड्रिकल ग्राइंडिंग" },
+        { name: "KRGU502", minDia: 50, maxDia: 100, app: "crankshaft", weightCap: 1200, details: "क्रैंकशाफ्ट ग्राइंडिंग" },
+        { name: "KRGU580", minDia: 50, maxDia: 190, app: "crankshaft", weightCap: 1500, details: "बड़े क्रैंकशाफ्ट के लिए" },
+        { name: "KRGU-HEAVY", minDia: 50, maxDia: 300, app: "crankshaft", weightCap: 30000, details: "5000kg तक क्रैंकशाफ्ट के लिए कस्टम समाधान" },
+        { name: "CS4", minDia: 25, maxDia: 330, app: "coolant", weightCap: 1500, details: "कूलेंट थ्रू आर्म्स" },
+        { name: "CS5", minDia: 80, maxDia: 410, app: "coolant", weightCap: 2000, details: "हैवी कूलेंट एप्लिकेशन" },
+        { name: "MS2080", minDia: 200, maxDia: 800, app: "heavy", weightCap: 20000, details: "मैन्युअल, 20 टन क्षमता" },
+        { name: "MS6012", minDia: 600, maxDia: 1200, app: "heavy", weightCap: 20000, details: "20 टन, बड़े व्यास" },
+        { name: "AS460", minDia: 20, maxDia: 60, app: "grinding", weightCap: 400, details: "रिट्रैक्टेबल आर्म" },
+        { name: "FRUN3", minDia: 50, maxDia: 165, app: "turning", weightCap: 1000, details: "फुली सील्ड, सेफ्टी वाल्व" }
+    ];
 
-<script src="script.js"></script>
+    function recommendModel() {
+        const minDia = parseFloat(document.getElementById('minDia').value);
+        const maxDia = parseFloat(document.getElementById('maxDia').value);
+        const app = document.getElementById('appType').value;
+        const weight = parseFloat(document.getElementById('weight').value);
+        const resultDiv = document.getElementById('resultArea');
 
+        if (isNaN(minDia) || isNaN(maxDia)) {
+            resultDiv.innerHTML = `<div class="result error">❌ कृपया न्यूनतम और अधिकतम व्यास भरें।</div>`;
+            return;
+        }
+        if (minDia > maxDia) {
+            resultDiv.innerHTML = `<div class="result error">❌ न्यूनतम व्यास अधिकतम से बड़ा नहीं हो सकता।</div>`;
+            return;
+        }
+
+        const appMap = {
+            turning: ['turning', 'compact'],
+            grinding: ['grinding'],
+            crankshaft: ['crankshaft'],
+            heavy: ['heavy'],
+            coolant: ['coolant'],
+            compact: ['compact']
+        };
+        const targetApps = appMap[app] || [app];
+
+        let matched = models.filter(m => {
+            const diaOk = (maxDia >= m.minDia - 20) && (minDia <= m.maxDia + 20);
+            const appOk = targetApps.includes(m.app);
+            return diaOk && appOk;
+        });
+
+        let weightWarning = '';
+        if (!isNaN(weight) && weight > 0) {
+            const capable = matched.some(m => weight <= m.weightCap);
+            if (!capable && matched.length) {
+                weightWarning = `<div class="error" style="margin-bottom:15px;">⚠️ आपका वजन (${weight} kg) नीचे दिखाए गए मॉडलों की क्षमता से अधिक है – कृपया हैवी ड्यूटी के लिए हमसे संपर्क करें।</div>`;
+            }
+        }
+
+        if (matched.length === 0) {
+            resultDiv.innerHTML = `<div class="result error">😕 कोई मॉडल नहीं मिला।<br><br>📞 संपर्क करें: +91 92050 09857</div>`;
+            return;
+        }
+
+        let html = weightWarning + `<div class="result"><strong>✅ आपके लिए ${matched.length} सुझाए गए मॉडल:</strong>
+        <table><thead><tr><th>मॉडल</th><th>व्यास रेंज</th><th>क्षमता</th><th>विशेषता</th><th>कार्रवाई</th></tr></thead><tbody>`;
+        matched.forEach(m => {
+            html += `<tr>
+                        <td><b>${m.name}</b></td>
+                        <td>${m.minDia}–${m.maxDia} mm</td>
+                        <td>${m.weightCap} kg</td>
+                        <td>${m.details}</td>
+                        <td><button class="quoteBtn" data-model="${m.name}" data-min="${m.minDia}" data-max="${m.maxDia}">📄 Quote लें</button></td>
+                     </tr>`;
+        });
+        html += `</tbody></table><hr>📞 <strong>क्वोटेशन के लिए:</strong> +91 92050 09857</div>`;
+        resultDiv.innerHTML = html;
+
+        // attach click handlers
+        document.querySelectorAll('.quoteBtn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.getElementById('custModel').value = btn.dataset.model;
+                const diaRange = `${btn.dataset.min} - ${btn.dataset.max} mm`;
+                document.getElementById('custDia').value = diaRange;
+                openModal();
+            });
+        });
+    }
+
+    function openModal() {
+        document.getElementById('quoteModal').style.display = 'block';
+        document.getElementById('quoteStatus').innerHTML = '';
+    }
+    function closeModal() {
+        document.getElementById('quoteModal').style.display = 'none';
+        document.getElementById('quoteForm').reset();
+    }
+
+    window.onload = () => {
+        const modal = document.getElementById('quoteModal');
+        const closeSpan = document.querySelector('.close');
+        if (closeSpan) closeSpan.onclick = closeModal;
+        window.onclick = (e) => { if (e.target === modal) closeModal(); };
+        
+        // Formspree: no extra fetch – default submission works.
+        // Just show status after submission (optional)
+        const form = document.getElementById('quoteForm');
+        form.addEventListener('submit', (e) => {
+            // Let form submit normally to Formspree
+            const statusDiv = document.getElementById('quoteStatus');
+            statusDiv.innerHTML = '<p style="color:green;">✅ अनुरोध भेजा जा रहा है... आपको ईमेल पर पुष्टि मिलेगी।</p>';
+            setTimeout(() => { statusDiv.innerHTML = ''; }, 3000);
+        });
+    };
+</script>
 </body>
 </html>
