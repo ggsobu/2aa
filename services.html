@@ -1,16 +1,120 @@
 <!DOCTYPE html>
-<html>
+<html lang="hi">
 <head>
-    <title>Services</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A&A Industrial Solutions - Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .service-card {
+            background: #f9fafc;
+            padding: 1.5rem;
+            border-radius: 24px;
+            transition: all 0.2s ease;
+            border: 1px solid #e2e8f0;
+        }
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.08);
+        }
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .service-card h3 {
+            color: #1e3c72;
+            margin-bottom: 0.75rem;
+        }
+        .service-card p {
+            font-size: 0.9rem;
+            color: #2d3e5f;
+        }
+        .cta-box {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            border-radius: 28px;
+            margin-top: 2rem;
+        }
+        .cta-box a {
+            color: #ffc107;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        @media (max-width: 600px) {
+            .services-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
-    <h1>Our Services</h1>
+<div class="container">
+    <h1>🔧 A&A स्टेडी रेस्ट मॉडल सुझाव</h1>
     <nav>
         <a href="index.html">Home</a> |
         <a href="about.html">About</a> |
         <a href="services.html">Services</a> |
         <a href="contact.html">Contact</a>
     </nav>
-    <p>We provide services.</p>
+    <p class="subtitle">हमारी सेवाएँ – आपके उत्पादन को बेहतर बनाने के लिए</p>
+
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-icon">🔧</div>
+            <h3>स्टेडी रेस्ट सप्लाई</h3>
+            <p>FAR सेल्फ-सेंटरिंग स्टेडी रेस्ट के सभी मॉडल (FRC, FRU, CS, FRUN, KRGU, GHS, AS, हैवी ड्यूटी HL, MS आदि) – न्यूनतम शिपिंग टाइम के साथ।</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">🛠️</div>
+            <h3>टर्नकी समाधान</h3>
+            <p>माउंटिंग ब्रैकेट (स्लेंट/फ्लैट बेड, LM गाइड), हाइड्रोलिक एलिमेंट्स, इलेक्ट्रिकल सिस्टम – पूरा पैकेज एक ही छत के नीचे।</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">⚙️</div>
+            <h3>कस्टम एप्लिकेशन</h3>
+            <p>फ्रिक्शन वेल्डिंग, इंडक्शन हार्डनिंग, स्क्रू कटिंग, डीप होल ड्रिलिंग, क्रैंकशाफ्ट ग्राइंडिंग के लिए विशेष स्टेडी रेस्ट डिजाइन।</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">📐</div>
+            <h3>ऑनलाइन मॉडल सुझाव</h3>
+            <p>हमारा फ्री टूल (2aa.co.in) आपको बस 3 सेकंड में सही मॉडल बताता है – अपने व्यास, एप्लिकेशन और वजन से मिलान करें।</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">🧰</div>
+            <h3>स्पेयर्स और मेंटेनेंस</h3>
+            <p>स्वार्फ गार्ड्स, रोलर स्ट्रिपर्स, सील किट, प्रॉक्सिमिटी सेंसर, लुब्रिकेशन कार्ट्रिज – सभी स्पेयर्स उपलब्ध।</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">🏗️</div>
+            <h3>हैवी ड्यूटी समाधान</h3>
+            <p>30,000 kg तक वजन उठाने वाले स्टेडी रेस्ट, मैनुअल या हाइड्रोलिक, सफेद मेटल पैड या रोलर कॉन्टैक्ट के साथ।</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">🔩</div>
+            <h3>रेट्रोफिटिंग और इंस्टालेशन</h3>
+            <p>पुरानी मशीनों पर सेल्फ-सेंटरिंग स्टेडी रेस्ट फिट करना, हाइड्रोलिक सर्किट डिजाइन और ऑन-साइट सपोर्ट।</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">🎓</div>
+            <h3>टेक्निकल सलाह</h3>
+            <p>आपके वर्कपीस के लिए सबसे उपयुक्त स्टेडी रेस्ट का चयन, क्लैंपिंग रेंज, एक्यूरेसी और लोड कैलकुलेशन में मदद।</p>
+        </div>
+    </div>
+
+    <div class="cta-box">
+        <p>किसी भी सेवा के बारे में अधिक जानकारी के लिए हमसे संपर्क करें।</p>
+        <a href="contact.html">📞 संपर्क फॉर्म भरें →</a>
+    </div>
+</div>
+<footer>
+    <p>© 2026 A&A Industrial Solutions | Made for Smart Manufacturing ⚙️</p>
+</footer>
 </body>
 </html>
