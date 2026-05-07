@@ -56,6 +56,8 @@ const models = [
 
 // ---------- रिकमेंडेशन फंक्शन (बेहतर डिटेल्स कॉलम के साथ) ----------
 function recommendModel() {
+    const machineCompany = document.getElementById('machineCompany') ? document.getElementById('machineCompany').value : '';
+const machineModel = document.getElementById('machineModel') ? document.getElementById('machineModel').value : '';
     const minDia = parseFloat(document.getElementById('minDia').value);
     const maxDia = parseFloat(document.getElementById('maxDia').value);
     const appSelect = document.getElementById('appType');
